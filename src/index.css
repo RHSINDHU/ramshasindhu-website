@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 255 255 255;
+    --color-surface: 245 245 245;
+    --color-text: 13 13 13;
+    --color-text-muted: 115 115 115;
+    --color-border: 212 212 212;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ink-0 text-ink-950 font-sans antialiased;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-ink-900 text-ink-0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-600;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:px-16;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-4xl px-6 sm:px-10;
+  }
+
+  .label-eyebrow {
+    @apply font-sans text-caption uppercase tracking-ultra-wide text-ink-500;
+  }
+
+  .label-meta {
+    @apply font-sans text-micro uppercase tracking-wide-editorial text-ink-400;
+  }
+
+  .editorial-line {
+    @apply h-px w-full bg-ink-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grayscale-to-color {
+    filter: grayscale(100%);
+    transition: filter 0.7s ease;
+  }
+
+  .grayscale-to-color:hover {
+    filter: grayscale(0%);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  a, button, [data-cursor] {
+    cursor: none;
+  }
+}
